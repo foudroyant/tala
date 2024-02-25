@@ -28,7 +28,7 @@ const tiers = [
     ],
     buttonText: 'Rejoindre Gratuitement',
     buttonVariant: 'outlined',
-    url : "/signin"
+    url : "/home"
   },
   /*{
     title: 'Premium',

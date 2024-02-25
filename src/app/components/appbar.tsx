@@ -16,7 +16,7 @@ import { goTSignin, logout } from '../actions/auth';
 import { signOut } from 'firebase/auth';
 
 export default function MenuAppBar(props : any) {
-  console.log(props)
+  
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -104,14 +104,6 @@ export default function MenuAppBar(props : any) {
                 }}>Logout</MenuItem>
                     */
                 }
-                <MenuItem onClick={()=>{
-                  signOut(props.auth).then(() => {
-                    // Sign-out successful.
-                    goTSignin()
-                  }).catch((error) => {
-                    // An error happened.
-                  });
-                }}>Logout</MenuItem>
               </Menu>
             </div>
           )}

@@ -45,7 +45,7 @@ export default function page() {
     const [toast, setToast] = useState("")
     const [user, setUser] = useState<User>()
 
-    React.useEffect(()=>{
+    /*React.useEffect(()=>{
       onAuthStateChanged(auth, (user) => {
         if (user) {
           const _user : User = {
@@ -62,7 +62,7 @@ export default function page() {
           goTSignin()
         }
       });
-    }, [])
+    }, [])*/
 
     const handleCopy = async (event : any) => {
       console.log(event)
@@ -189,9 +189,9 @@ export default function page() {
         </React.Fragment>
       );
 
-  return user != undefined ? (
+  return (
     <>
-    <MenuAppBar email={user?.email} auth={auth} />
+    <MenuAppBar />
     
     <Container>
     <Box
@@ -281,6 +281,17 @@ export default function page() {
         }
       </List>
   </Box>
+
+  <Box sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
+            <Typography variant="body2" color="warning" >
+              Contact : stephanebazebibouta@gmail.com
+          </Typography>
+          </Box>
 </Container>
 
 <Snackbar
@@ -292,37 +303,5 @@ export default function page() {
 />
 
     </>
-  ) : <>
-    <Container>
-  <Box sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
-            <Card sx={{ maxWidth: 500 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          //height="140"
-          image="/tala_logo.png"
-          alt="Image à traiter"
-        />
-        <CardContent>
-          <Typography variant="body2" color="warning" >
-            Veuillez d'abord vous connecter...
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-        <CardActions>
-        <Button onClick={()=>{
-          goTSignin()
-        }} size="small" color="info">
-          Se connecter
-        </Button>
-      </CardActions>
-    </Card>
-          </Box>
-  </Container>
-  </>
+  ) 
 }
