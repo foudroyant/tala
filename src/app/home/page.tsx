@@ -99,14 +99,6 @@ export default function page() {
             setToast("Veuillez patienter...")
             handleClick()
             
-            getText(formData)
-            .then(async (res)=>{
-              if(res.value == false){
-                //Toast pour dire que la taille du fichier ne correspond pas à votre formule.
-                setTexte(res.msg!)
-                setImageSrc("/tala_logo.svg")
-                return 
-              }
               console.log(imageSrc)
               const worker = await createWorker('eng');
               const ret = await worker.recognize(reader.result+"");
@@ -122,10 +114,7 @@ export default function page() {
                 ]
               )
               await worker.terminate();
-           }).catch(error =>{
-            console.log(error)
-            setTexte("Une erreur s'est produit")
-           })
+           
           };
           reader.readAsDataURL(file);
         }
