@@ -134,13 +134,13 @@ export default function page() {
       const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        getText(data).then(async (res)=>{
+        /*getText(data).then(async (res)=>{
           console.log(res, data.get("file"))
           if(res.value == false){
             //Toast pour dire que la taille du fichier ne correspond pas à votre formule.
             setTexte(res.msg!)
             return 
-          }
+          }*/
           
           const worker = await createWorker('eng');
           const ret = await worker.recognize(imageSrc+"");
@@ -156,7 +156,7 @@ export default function page() {
             ]
           )
           await worker.terminate();
-        });
+       // });
         
       };
 
